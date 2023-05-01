@@ -1,0 +1,19 @@
+•	SQL Select
+Practice Problem 1 
+
+SELECT year, month, month_name, south, west, midwest, northeast 
+from tutorial.us_housing_units
+
+Practice Problem 2
+
+SELECT
+  year AS "YEAR",
+  MONTH AS "Month",
+  month_name AS "Month Name",
+  south AS "South",
+  west AS "West",
+  midwest AS "Midwest",
+  northeast AS "Northeast"
+FROM
+  tutorial.us_housing_units
+
