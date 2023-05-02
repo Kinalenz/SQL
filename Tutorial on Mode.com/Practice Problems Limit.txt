@@ -1,0 +1,9 @@
+•	SQL Limit
+Practice Problem 1
+
+SELECT
+  *
+FROM
+  tutorial.us_housing_units
+LIMIT 15
+
