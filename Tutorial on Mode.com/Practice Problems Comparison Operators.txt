@@ -1,0 +1,78 @@
+•	SQL Comparison Operators
+
+Practice Problem 1
+
+SELECT
+  year,
+  MONTH,
+  west AS "West Region"
+FROM
+  tutorial.us_housing_units
+WHERE
+west > 50
+
+
+Practice Problem 2
+
+select year, month, south as "South Region"
+from tutorial.us_housing_units 
+where south <= 20
+
+
+Practice Problem 3
+
+SELECT
+  *
+FROM
+  tutorial.us_housing_units
+WHERE
+month_name = 'February'
+
+
+Practice Problem 4
+
+SELECT
+  *
+FROM
+  tutorial.us_housing_units
+WHERE
+month_name < 'O'
+
+
+Practice Problem 5
+
+SELECT
+  year,
+  MONTH,
+  month_name,
+  
+FROM
+tutorial.us_housing_units
+
+
+Practice Problem 6
+
+SELECT
+  year,
+  MONTH,
+  month_name,
+  west,
+  midwest,
+  northeast
+FROM
+  tutorial.us_housing_units
+WHERE
+west > (midwest + northeast)
+
+
+Practice Problem 7
+
+SELECT year, month, month_name, 
+south / (south + west + midwest + northeast) *100 as south_pct,
+west / (south + west + midwest + northeast) *100 as west_pct,
+midwest / (south + west + midwest + northeast) *100 as midwest_pct,
+northeast / (south + west + midwest + northeast) *100 as northeast_pct
+from tutorial.us_housing_units 
+WHERE year >= 2000
+
+
