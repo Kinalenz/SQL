@@ -1,0 +1,121 @@
+•	SQL Logical Operators
+
+Practice Problem 1 LIKE ILIKE
+
+SELECT
+  *
+FROM
+  tutorial.billboard_top_100_year_end
+WHERE
+group_name iLIKE '%ludacris%'
+
+
+Practice Problem 2 IN
+SELECT
+  *
+FROM
+  tutorial.billboard_top_100_year_end
+WHERE
+  group_name IN ('M.C. Hammer', 'Hammer', 'Elvis Presley')
+
+
+Practice Problem 3 Between AND
+
+SELECT *
+    FROM  tutorial.billboard_top_100_year_end
+WHERE year BETWEEN 1985 AND 1990
+
+
+Practice Problem 4 IS NULL
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+WHERE song_name IS NULL
+
+
+Practice Problem 5 AND Like
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE year_rank <= 10
+AND group_name ILIKE '%Ludacris%'
+
+
+Practice Problem 6 AND IN
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE year_rank = 1 
+AND year IN (1990, 2000, 2010)
+
+
+Practice Problem 7 AND BETWEEN ILIKE
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE year BETWEEN 1960 AND 1969
+AND song_name ILIKE '%love%'
+
+
+Practice Problem 8 AND OR ILIKE
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE  year_rank <=10
+AND (group_name ILIKE '%katy perry%' OR group_name ILIKE '%bon jovi%')
+
+
+Practie Problem 9 
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE song_name ILIKE '%california%' 
+AND (year BETWEEN 1970 and 1979 OR year BETWEEN 1990 and 1999)
+
+
+Practice Problem 10
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE group_name ILIKE '%dr. dre%' 
+AND (year <= 2001 OR year >= 2009)
+
+
+Practice Problem 11
+
+SELECT *
+FROM tutorial.billboard_top_100_year_end
+
+
+Practice Problem 12 
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE year = 2012
+ORDER BY song_name DESC
+
+
+Practice Problem 13
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE year = 2010 
+ORDER BY year_rank, artist
+
+
+Practice Problem 14
+
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+    WHERE group_name ILIKE '%t-pain%'
+ORDER BY year_rank DESC
+
+
+Practice Problem 15
+
+SELECT *
+FROM tutorial.billboard_top_100_year_end
+WHERE year_rank BETWEEN 10 and 20 -- Limit the rank between 10 and 20
+AND year IN (1993, 2003, 2013) -- Select the relevant years
+ORDER BY year, year_rank
+
