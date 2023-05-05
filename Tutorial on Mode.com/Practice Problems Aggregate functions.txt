@@ -1,0 +1,46 @@
+•	SQL Aggregate functions
+
+Practice Problem 1 COUNT individual columns
+
+SELECT COUNT(low) AS low
+  FROM tutorial.aapl_historical_stock_price
+
+
+Practice Problem 2 SUM and COUNT 
+
+SELECT SUM (open) / COUNT (open) AS "Average Open"
+  FROM tutorial.aapl_historical_stock_price
+
+
+Practice Problem 3 MAX MIN
+
+SELECT MIN(low) as "MIN low price"
+  FROM tutorial.aapl_historical_stock_price
+
+
+Practice Problem 4 MAX MIN
+
+SELECT MAX (close - open) as "MAX single-day increase"
+  FROM tutorial.aapl_historical_stock_price
+
+
+Practice Problem 5 COUNT
+
+SELECT 
+  COUNT (date) as "Count of Date",
+  COUNT (year) as "Count of Year",
+  COUNT (month) as "Count of Month",
+  COUNT (open) as "Count of Open",
+  COUNT (high) as "Count of High",
+  COUNT (low) as "Count of Low",
+  COUNT (close) as "Count of Close",
+  COUNT (volume) as "Count of Volumr"
+    FROM tutorial.aapl_historical_stock_price
+
+
+Practice Problem 6 AVG
+
+SELECT AVG (volume) as "Average daily Volume"
+  FROM tutorial.aapl_historical_stock_price
+
+
