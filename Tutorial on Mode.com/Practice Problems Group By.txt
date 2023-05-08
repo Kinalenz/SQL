@@ -1,0 +1,10 @@
+•	SQL Group By
+
+Practice Problem 1 GROUP BY
+
+SELECT year,
+       AVG (close - open) as "Average daily change"
+  FROM tutorial.aapl_historical_stock_price
+    GROUP BY year
+    ORDER BY year
+
