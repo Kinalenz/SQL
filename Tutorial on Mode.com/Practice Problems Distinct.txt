@@ -1,0 +1,29 @@
+Distinct
+
+Practice Problem 1
+
+SELECT DISTINCT year
+  FROM tutorial.aapl_historical_stock_price
+  ORDER BY year
+
+
+Practice Problem 2
+
+SELECT year,
+       COUNT(DISTINCT month) as month_count
+  FROM tutorial.aapl_historical_stock_price
+GROUP BY 1
+ORDER BY 1 
+
+/* Write a query that counts the number of unique values in the month column for each year. */
+
+
+Practice Problem 3
+
+SELECT COUNT(DISTINCT year) as count_year,
+       COUNT(DISTINCT month) as count_monh
+FROM tutorial.aapl_historical_stock_price
+
+
+/* Write a query that separately counts the number of unique values in the month column and the number of unique values in the `year` column. */
+
