@@ -1,0 +1,78 @@
+•	Window Function
+
+Practice Problem 1
+
+SELECT sub.start_terminal, 
+       sub.duration_seconds,
+       sub.start_terminal_total,
+       sub.duration_seconds / start_terminal_total * 100 AS percentage
+  FROM (
+         SELECT start_terminal,
+                 duration_seconds,
+                 SUM(duration_seconds) OVER (PARTITION BY start_terminal) AS start_terminal_total
+             FROM tutorial.dc_bikeshare_q1_2012
+          WHERE start_time < '2012-01-08'
+        ) sub
+ORDER BY 1,4 DESC
+
+/* Write a query modification of the above example query 
+   that shows the duration of each ride as a percentage of the total time 
+accrued by riders from each start_terminal */
+
+
+Practice Problem 1.1
+
+SELECT start_terminal,
+       duration_seconds,
+       SUM(duration_seconds) OVER (PARTITION BY start_terminal) AS start_terminal_sum,
+       (duration_seconds/SUM(duration_seconds) OVER (PARTITION BY start_terminal))*100 AS pct_of_total_time
+  FROM tutorial.dc_bikeshare_q1_2012
+ WHERE start_time < '2012-01-08'
+ ORDER BY 1, 4 DESC	
+/* Write a query modification of the above example query 
+   that shows the duration of each ride as a percentage of the total time 
+accrued by riders from each start_terminal */
+
+
+Practice Problem 2
+
+SELECT end_terminal,
+       duration_seconds,
+       SUM(duration_seconds) OVER (PARTITION BY end_terminal ORDER BY duration_seconds) AS running_total
+  FROM tutorial.dc_bikeshare_q1_2012
+  WHERE start_time < '2012-01-08'
+ 
+/* Write a query that shows a running total of the duration of bike rides (similar to the last example), 
+but grouped by end_terminal, and with ride duration sorted in descending order. */
+
+
+Practice Problem 3
+
+SELECT *
+  FROM (
+        SELECT start_terminal,
+               duration_seconds,
+               RANK() OVER (PARTITION BY start_terminal ORDER BY duration_seconds DESC) AS rank
+          FROM tutorial.dc_bikeshare_q1_2012
+         WHERE start_time < '2012-01-08'
+        ) sub
+  WHERE sub.rank <=5
+ 
+ /* Write a query that shows the 5 longest rides from each starting terminal, 
+ordered by terminal, and longest to shortest rides within each terminal. 
+Limit to rides that occurred before Jan. 8, 2012. */
+
+
+Practice Problem 4
+
+SELECT duration_seconds,
+       NTILE(100) OVER (ORDER BY duration_seconds) AS percentile
+    FROM tutorial.dc_bikeshare_q1_2012
+  WHERE start_time < '2012-01-08'
+  ORDER BY duration_seconds DESC
+ 
+/* Write a query that shows only the duration of the trip 
+and the percentile into which that duration falls 
+(across the entire dataset—not partitioned by terminal). */
+
+
